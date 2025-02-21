@@ -57,23 +57,23 @@ export default function Header({ setSearchQuery }) {
   return (
     <nav className={`p-4 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
       <div className="flex justify-around py-6 items-center">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 xl:gap-3">
           <Link to="/">
-            <img src={darkMode ? LogoDark : LogoLight} alt="Logo" className="h-10" />
+            <img src={darkMode ? LogoDark : LogoLight} alt="Logo" className="h-6 xl:h-10" />
           </Link>
-          <Link to="/" className="text-3xl font-semibold">
+          <Link to="/" className="text-lg xl:text-3xl max-xl:font-semibold">
             DevVisionary
           </Link>
         </div>
 
         <div className="flex space-x-6">
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/blog" className="hover:underline">Blog</Link>
-          <Link to="/about" className="hover:underline">About</Link>
-          <Link to="/projects" className="hover:underline">Projects</Link>
+          <Link to="/" className="hover:underline max-sm:hidden">Home</Link>
+          <Link to="/blog" className="hover:underline max-sm:hidden">Blog</Link>
+          <Link to="/about" className="hover:underline max-sm:hidden">About</Link>
+          <Link to="/projects" className="hover:underline max-sm:hidden">Projects</Link>
         </div>
 
-        <div className="flex space-x-6 items-center">
+        <div className="flex space-x-3 xl:space-x-6 items-center">
           <div className="relative">
             {showSearch && (
               <input
@@ -87,7 +87,7 @@ export default function Header({ setSearchQuery }) {
           </div>
           <FiSearch
             size={22}
-            className="hover:cursor-pointer"
+            className="hover:cursor-pointer max-sm:hidden"
             onClick={() => setShowSearch(!showSearch)}
           />
 
@@ -113,18 +113,18 @@ export default function Header({ setSearchQuery }) {
           ) : (
             <button
               onClick={handleAuth}
-              className="bg-black text-white px-5 py-2.5 rounded-md text-sm hover:bg-gray-700"
+              className="bg-black text-white px-2.5 py-1.5 xl:px-5 xl:py-2.5 rounded-md text-sm hover:bg-gray-700"
             >
               Login
             </button>
           )}
 
-          <button onClick={() => setDarkMode(!darkMode)} className="p-2">
+          <button onClick={() => setDarkMode(!darkMode)} className="">
             {darkMode ? <MdOutlineLightMode size={22} /> : <MdOutlineDarkMode size={22} />}
           </button>
         </div>
       </div>
-      <hr className="container mx-auto border-gray-300" />
+      <hr className="md:container md:mx-auto border-gray-300 mx-5" />
     </nav>
   );
 }

@@ -53,29 +53,29 @@ export default function AllBlogPosts({ searchQuery }) {
     );
 
     return (
-        <div className='container mx-auto py-10 px-5'>
+        <div className='md:container md:mx-auto py-5 md:py-5 xl:py-10 w-full px-5 max-md:px-7'>
             <div className='mb-10'>
-                <h3 className='text-2xl font-semibold'>All Blog Posts</h3>
+                <h3 className='text-xl md:text-2xl font-semibold'>All Blog Posts</h3>
             </div>
 
             {loading ? (
                 <p>Loading...</p>
             ) : filteredPosts.length > 0 ? (
                 <>
-                    <div className='grid grid-cols-12 gap-10'>
+                    <div className='grid grid-cols-12 gap-6 xl:gap-10'>
                         {filteredPosts.slice(4, 11).map(post => (
-                            <Link to={`/blog/${post.id}`} key={post.id} className='col-span-4'>
-                                <div className='h-[490px] flex flex-col bg-white text-black overflow-hidden group hover:cursor-pointer'>
+                            <Link to={`/blog/${post.id}`} key={post.id} className='col-span-12 xl:col-span-4'>
+                                <div className='h-[350px] xl:h-[490px] flex flex-col bg-white text-black overflow-hidden group hover:cursor-pointer'>
                                     <img src={post.image} alt="" className='w-full h-1/2 object-cover transition-transform duration-300 group-hover:scale-105' />
-                                    <div className='py-5 duration-300 group-hover:py-7 flex flex-col h-full dark:bg-gray-900 dark:text-white'>
+                                    <div className='py-3 xl:py-5 duration-300 xl:group-hover:py-7 flex flex-col h-full dark:bg-gray-900 dark:text-white'>
                                         <p className='text-purple-700 dark:text-purple-400 font-semibold text-sm'>
                                             {post.author} • {post.date}
                                         </p>
                                         <div className='flex justify-between'>
-                                            <h3 className='text-2xl font-semibold mt-1 group-hover:underline'>{post.title}</h3>
+                                            <h3 className='text-xl xl:text-2xl font-semibold xl:mt-1 group-hover:underline'>{post.title}</h3>
                                             <FiArrowUpRight size={25} />
                                         </div>
-                                        <p className='text-gray-600 mt-3 dark:text-gray-500'>{post.description}</p>
+                                        <p className='max-xl:text-sm text-gray-600 mt-1 xl:mt-3 dark:text-gray-500'>{post.description}</p>
                                         <div className='flex gap-2 mt-auto'>
                                             {post.tags.map((tag, index) => (
                                                 <span key={index} className={`px-3 py-1 rounded-full text-xs font-bold ${tagColors[tag]}`}>
