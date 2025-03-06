@@ -88,7 +88,7 @@ export default function AllBlogPosts({ searchQuery }) {
                             </Link>
                         ))}
                     </div>
-                    <div className='flex justify-center mt-14'>
+                    <div className='flex justify-center mt-10 mb-4'>
                         <Link to="/blog" className='text-black text-sm flex items-center gap-1 border border-1 border-black py-2 px-3 rounded-lg hover:text-white hover:bg-black dark:bg-gray-900 dark:text-white dark:border-white dark:hover:bg-gray-800'>
                             View All Blog Posts <FiArrowUpRight size={23} />
                         </Link>

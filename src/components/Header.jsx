@@ -56,7 +56,7 @@ export default function Header({ setSearchQuery }) {
 
   return (
     <nav className={`p-4 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
-      <div className="flex justify-around py-6 items-center">
+      <div className="flex justify-between xl:justify-around py-6 items-center">
         <div className="flex items-center gap-1 xl:gap-3">
           <Link to="/">
             <img src={darkMode ? LogoDark : LogoLight} alt="Logo" className="h-6 xl:h-10" />
@@ -124,7 +124,7 @@ export default function Header({ setSearchQuery }) {
           </button>
         </div>
       </div>
-      <hr className="md:container md:mx-auto border-gray-300 mx-5" />
+      <hr className="md:container md:mx-auto border-gray-300" />
     </nav>
   );
 }
