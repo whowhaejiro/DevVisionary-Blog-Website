@@ -9,7 +9,7 @@ export default function OurProjects() {
         </div>
 
         <div className='grid grid-cols-12 gap-6'>
-            <div className='col-span-6'>
+            <div className='col-span-12 lg:col-span-6'>
                 <div className='h-[540px] flex flex-col bg-white text-black overflow-hidden group hover:cursor-pointer'>
                     <img src={ProjectImg} alt="" className='w-full h-3/4 object-cover transition-transform duration-300 group-hover:scale-105' />
                     <div className='py-4 duration-300 group-hover:py-6 flex flex-col h-full dark:bg-gray-900 dark:text-white'>

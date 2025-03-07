@@ -26,7 +26,7 @@ export default function SinglePost() {
     if (!post) return <p>Post not found!</p>;   
 
     return (
-        <div className="dark:bg-gray-900 dark:text-white">
+        <div className="dark:bg-gray-900 dark:text-white px-5 max-md:px-7">
             <div className="container mx-auto py-10">
                 <h1 className="text-3xl font-bold">{post.title}</h1>
                 <p className="text-gray-600 dark:text-gray-500">By {post.user.name} • {new Date(post.published_at).toDateString()}</p>

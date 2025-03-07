@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"} min-h-screen flex justify-center items-center`}>
+    <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"} h-[75vh] flex justify-center items-center`}>
       <div className="bg-gray-100 dark:bg-gray-800 p-10 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-5">Login to Your Account</h2>
         <form onSubmit={handleSubmit}>

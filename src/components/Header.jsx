@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa6";
+import { CgMenuLeft } from "react-icons/cg";
+import { IoMdClose } from "react-icons/io";
 import LogoLight from "../assets/images/logo1.png";
 import LogoDark from "../assets/images/logo2.png";
 import { ThemeContext } from "../context/ThemeContext";
@@ -54,10 +56,39 @@ export default function Header({ setSearchQuery }) {
     setSearchQuery(e.target.value);
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenuIcon = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <nav className={`p-4 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
-      <div className="flex justify-between xl:justify-around py-6 items-center">
+      <div className="flex max-sm:justify-between justify-around py-6 items-center">
         <div className="flex items-center gap-1 xl:gap-3">
+          <button className="hidden max-sm:flex mr-2" onClick={toggleMenuIcon}>
+            <div><CgMenuLeft size={26} /></div>
+          </button>
+
+          {isOpen && (
+            <div className={`fixed z-[50] shadow-lg ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"} top-0 left-0 h-screen w-60 transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+              <div className="flex absolute top-5 left-5 items-center">
+                <button className="mr-4 mt-6" onClick={toggleMenuIcon}><IoMdClose size={30} /></button>
+                <img src={darkMode ? LogoDark : LogoLight} alt="Logo" className="h-5 mr-1 mt-6" />
+                <p className="mt-6 font-semibold">DevVisionary</p>
+              </div>
+              <div className="flex flex-col mt-32 space-y-6 text-lg px-6">
+                <Link to="/" className="hover:underline" onClick={() => setIsOpen(false)}>Home</Link>
+                <Link to="/blog" className="hover:underline" onClick={() => setIsOpen(false)}>Blog</Link>
+                <Link to="/about" className="hover:underline" onClick={() => setIsOpen(false)}>About</Link>
+                <Link to="/projects" className="hover:underline" onClick={() => setIsOpen(false)}>Projects</Link>
+              </div>
+              <div className="text-sm absolute bottom-5 left-16">
+                <p>&copy; DevVisionary</p>
+              </div>
+            </div>
+          )}
+
           <Link to="/">
             <img src={darkMode ? LogoDark : LogoLight} alt="Logo" className="h-6 xl:h-10" />
           </Link>
